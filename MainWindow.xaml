@@ -14,5 +14,8 @@
         <Button Content="Многопоточность" x:Name="ThreadingButton"
                 Margin="20 7" Click="ThreadingButton_Click"/>
 
+        <Button Content="Синхронизация" x:Name="SynchroButton"
+                Margin="20 7" Click="SynchroButton_Click"/>
+
     </StackPanel>
 </Window>
