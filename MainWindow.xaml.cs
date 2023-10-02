@@ -38,5 +38,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
             SynchroWindow SOkno = new SynchroWindow();
             SOkno.ShowDialog();
         }
+
+        private void TaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            TaskWindow TOkno2 = new TaskWindow();
+            TOkno2.ShowDialog();
+        }
     }
 }

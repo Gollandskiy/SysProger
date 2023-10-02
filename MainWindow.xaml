@@ -17,5 +17,8 @@
         <Button Content="Синхронизация" x:Name="SynchroButton"
                 Margin="20 7" Click="SynchroButton_Click"/>
 
+        <Button Content="Многозадачность" x:Name="TaskButton"
+                Margin="20 7" Click="TaskButton_Click"/>
+
     </StackPanel>
 </Window>

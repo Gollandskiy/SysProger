@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Занятие_в_аудитории_1_Системное_программирование_
 {
@@ -38,8 +39,19 @@ namespace Занятие_в_аудитории_1_Системное_програ
             lastThreadProcessed = false;
             for (int i = 0; i < threadCount; i++)
             {
-                new Thread(AddPercent).Start(new MonthData { Month = i + 1 });
+                new Thread(AddPercentS).Start(new MonthData { Month = i + 1 });
             }
+        }
+        private Semaphore semaphore = new Semaphore(3, 3);
+        private void AddPercentS(object? data)
+        {
+            var monthData = data as MonthData;
+            semaphore.WaitOne();
+            Thread.Sleep(1000);
+            double localSum;
+            localSum = sum = sum * 1.1;
+            semaphore.Release();
+            Dispatcher.Invoke(() => LogTextBlock.Text += $"{monthData?.Month} {localSum}\n");
         }
 
         private void AddPercent(object? data)

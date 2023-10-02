@@ -1,0 +1,25 @@
+﻿<Window x:Class="Занятие_в_аудитории_1_Системное_программирование_.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Занятие_в_аудитории_1_Системное_программирование_"
+        mc:Ignorable="d"
+        Title="TaskWindow" Height="450" Width="300">
+    <StackPanel Orientation="Vertical">
+        <Label Content="Многозадачность"/>
+        <Button x:Name="DemoButton1"
+                Content="Demo"
+                Click="DemoButton1_Click"/>
+        <Button x:Name="DemoButton2"
+                Content="Demo 2"
+                Click="DemoButton2_Click"/>
+        <TextBlock Text="" x:Name="LogTextBlock"/>
+        <Button x:Name="Start1" Content="StartSynchro" Click="Start_Click" HorizontalAlignment="Center"  Width="100"/>
+        <Button x:Name="Start2" Content="StartAsynchro" Click="Start2_Click" HorizontalAlignment="Center"  Width="100"/>
+        <ProgressBar Width="200" x:Name="ProgBar1" Margin="15 5" Height="20"/>
+        <ProgressBar Width="200" x:Name="ProgBar2" Margin="15 5" Height="20"/>
+
+    </StackPanel>
+    
+</Window>
