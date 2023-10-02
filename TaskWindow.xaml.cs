@@ -72,7 +72,6 @@ namespace Занятие_в_аудитории_1_Системное_програ
 
         private async void Start2_Click(object sender, RoutedEventArgs e)
         {
-
             AddProgressBar(new ProgressWork { ProgressBar = ProgBar1, Delay = r.Next(100, 500) });
             AddProgressBar(new ProgressWork { ProgressBar = ProgBar2, Delay = r.Next(100, 500) });
         }
