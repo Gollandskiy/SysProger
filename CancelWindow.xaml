@@ -1,0 +1,39 @@
+﻿<Window x:Class="Занятие_в_аудитории_1_Системное_программирование_.CancelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Занятие_в_аудитории_1_Системное_программирование_"
+        mc:Ignorable="d"
+        Title="CancelWindow" Height="550" Width="400">
+    <StackPanel Orientation="Vertical">
+        <Label Content="Отмена задач" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Margin="0 15">
+            <Button x:Name="StartBtn1" Content="Start" Click="StartBtn1_Click"/>
+            <StackPanel Orientation="Vertical" Margin="0">
+                <ProgressBar Width="280" x:Name="ProgressBar10" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar11" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar12" Height="20" Margin="15 5"/>
+            </StackPanel>
+            <Button Content="Stop" x:Name="StopBtn1" Click="StopBtn1_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 15">
+            <Button x:Name="StartBtn2" Content="Start" Click="StartBtn2_Click"/>
+            <StackPanel Orientation="Vertical" Margin="0">
+                <ProgressBar Width="280" x:Name="ProgressBar13" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar14" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar15" Height="20" Margin="15 5"/>
+            </StackPanel>
+            <Button Content="Stop" x:Name="StopBtn2" Click="StopBtn2_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 15">
+            <Button x:Name="StartBtn3" Content="Start" Click="StartBtn3_Click"/>
+            <StackPanel Orientation="Vertical" Margin="0">
+                <ProgressBar Width="280" x:Name="ProgressBar16" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar17" Height="20" Margin="15 5"/>
+                <ProgressBar Width="280" x:Name="ProgressBar18" Height="20" Margin="15 5"/>
+            </StackPanel>
+            <Button Content="Stop" x:Name="StopBtn3" Click="StopBtn3_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

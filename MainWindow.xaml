@@ -20,5 +20,8 @@
         <Button Content="Многозадачность" x:Name="TaskButton"
                 Margin="20 7" Click="TaskButton_Click"/>
 
+        <Button Content="Отмена задач" x:Name="CancelButton"
+                Margin="20 7" Click="CancelButton_Click"/>
+
     </StackPanel>
 </Window>

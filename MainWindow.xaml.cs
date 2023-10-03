@@ -45,5 +45,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
             TaskWindow TOkno2 = new TaskWindow();
             TOkno2.ShowDialog();
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            CancelWindow COkno2 = new CancelWindow();
+            COkno2.ShowDialog();
+        }
     }
 }

@@ -121,6 +121,8 @@ namespace Занятие_в_аудитории_1_Системное_програ
                 RabotaTime = time,
                 CancelToken = cts.Token
             });
+            //thread5.Join();
+
         }
 
         private void StopButton5_Click(object sender, RoutedEventArgs e)
