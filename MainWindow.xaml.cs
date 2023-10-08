@@ -52,5 +52,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
             CancelWindow COkno2 = new CancelWindow();
             COkno2.ShowDialog();
         }
+
+        private void ProcessButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            ProcessWindow POkno = new ProcessWindow();
+            POkno.ShowDialog();
+        }
     }
 }
