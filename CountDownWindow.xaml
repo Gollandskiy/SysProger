@@ -1,16 +1,14 @@
-﻿<Window x:Class="Занятие_в_аудитории_1_Системное_программирование_.SynchroWindow"
+﻿<Window x:Class="Занятие_в_аудитории_1_Системное_программирование_.CountDownWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Занятие_в_аудитории_1_Системное_программирование_"
         mc:Ignorable="d"
-        Closed="Window_Closed"
-        Title="SynchroWindow" Height="450" Width="300">
+        Loaded="Window_Loaded"
+        Title="CountDownWindow" Height="100" Width="300">
     <StackPanel Orientation="Vertical">
-        <Label Content="Syncho" HorizontalAlignment="Center"/>
-        <Button x:Name="StartButton" Content="Start"
-                Click="StartButton_Click"/>
-        <TextBlock x:Name="LogTextBlock"/>
+        <Label Content="Закройте другое окно или это автоматически закроется" FontSize="11"/>
+        <ProgressBar x:Name="progBar1" Height="25" Value="100"/>
     </StackPanel>
 </Window>

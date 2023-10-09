@@ -35,8 +35,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
         private void SynchroButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            SynchroWindow SOkno = new SynchroWindow();
-            SOkno.ShowDialog();
+            try
+            {
+                new SynchroWindow().ShowDialog();
+            }
+            catch { }
+            this.ShowDialog();
         }
 
         private void TaskButton_Click(object sender, RoutedEventArgs e)
@@ -56,8 +60,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
         private void ProcessButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            ProcessWindow POkno = new ProcessWindow();
-            POkno.ShowDialog();
+            try
+            {
+                new ProcessWindow().ShowDialog();
+            }
+            catch { }
+            this.ShowDialog();
         }
     }
 }

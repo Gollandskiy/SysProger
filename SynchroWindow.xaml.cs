@@ -25,10 +25,37 @@ namespace Занятие_в_аудитории_1_Системное_програ
         private int threadCount;
         private object sumLocker = new();
         private bool lastThreadProcessed = false;
+        private static Mutex mutex;
+        private const String mutexName = "SPNP_MUTEX";
 
         public SynchroWindow()
         {
+            OtherInstance();
             InitializeComponent();
+        }
+        private void OtherInstance()
+        {
+            try
+            {
+                mutex = Mutex.OpenExisting(mutexName);
+            }
+            catch
+            {}
+            if (mutex == null)
+            {
+                mutex = new Mutex(true, mutexName);
+            }
+            else
+            {
+                if (! mutex.WaitOne(1))
+                {
+                    if (new CountDownWindow(mutex).ShowDialog() != true)
+                    {
+                        throw new ApplicationException();
+                    }
+                    mutex.WaitOne();
+                }
+            }
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -122,6 +149,11 @@ namespace Занятие_в_аудитории_1_Системное_програ
             localSum *= 1.1;
             sum = localSum;
             Dispatcher.Invoke(() => { LogTextBlock.Text += $"{sum}\n"; });
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            mutex.ReleaseMutex();
         }
     }
 }

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Занятие_в_аудитории_1_Системное_программирование_"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
         Title="ProcessWindow" Height="450" Width="400">
     <StackPanel Orientation="Vertical">
         <Label Content="Процессы" HorizontalAlignment="Center"/>

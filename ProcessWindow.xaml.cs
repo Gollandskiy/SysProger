@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +21,40 @@ namespace Занятие_в_аудитории_1_Системное_програ
     /// </summary>
     public partial class ProcessWindow : Window
     {
+        private static Mutex mutex;
+        private const String mutexName = "SPNP_MUTEX";
         public ProcessWindow()
         {
+            CheckPreviousLunch();
             InitializeComponent();
         }
+        private void CheckPreviousLunch()
+        {
+            try
+            {
+                mutex = Mutex.OpenExisting(mutexName);
+            }
+            catch { }
+            if (mutex != null)
+            {
+                if (!mutex.WaitOne(1))
+                {
+                    string message = "Запущено другой экземпляр окна.";
+                    MessageBox.Show(message);
+                    throw new ApplicationException(message);
+                }
+            }
+            else mutex = new Mutex(true, mutexName);
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            mutex.ReleaseMutex();
+            //mutex.Dispose();
+        }
         private void ShowProcesses_Click(object sender, RoutedEventArgs e)
         {
             Process[] processes = Process.GetProcesses();
@@ -112,8 +142,7 @@ namespace Занятие_в_аудитории_1_Системное_програ
             else
             {
                 MessageBox.Show("Такого файла не существует!");
-            }
-           
+            }  
         }
 
         private void StartCalc_Click(object sender, RoutedEventArgs e)

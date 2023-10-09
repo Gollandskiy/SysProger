@@ -21,9 +21,30 @@ namespace Занятие_в_аудитории_1_Системное_програ
     /// </summary>
     public partial class ThreadingWindow : Window
     {
+        private static Mutex? mutex;
+        private static string mutexName = "TW_MUTEX";
         public ThreadingWindow()
         {
+            CheckLunch();
             InitializeComponent();
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            mutex?.ReleaseMutex();
+        }
+        private void CheckLunch()
+        {
+            try { mutex = Mutex.OpenExisting(mutexName); } catch { }
+
+            if (mutex is null)
+            {
+                mutex = new Mutex(true, mutexName);
+            }
+            else if (!mutex.WaitOne(1))
+            {
+                MessageBox.Show("Есть уже запущенное окно!");
+                throw new ApplicationException();
+            }
         }
 
         private void StartButton1_Click(object sender, RoutedEventArgs e)
@@ -174,7 +195,6 @@ namespace Занятие_в_аудитории_1_Системное_програ
             StartButton6.IsEnabled = false;
             
         }
-
         private void StopButton6_Click(object sender, RoutedEventArgs e)
         {
             cts2.Cancel();
