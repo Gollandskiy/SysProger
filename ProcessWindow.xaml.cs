@@ -74,5 +74,65 @@ namespace Занятие_в_аудитории_1_Системное_програ
                 MessageBox.Show(message);
             }
         }
+       private Process notepadProcess;
+        private void StartNotepad_Click(object sender, RoutedEventArgs e)
+        {
+            notepadProcess ??= Process.Start("notepad.exe");
+        }
+
+        private void StopNotepad_Click(object sender, RoutedEventArgs e)
+        {
+            notepadProcess.CloseMainWindow();
+            notepadProcess.Kill(true);
+            notepadProcess.WaitForExit();
+            notepadProcess.Dispose();
+            notepadProcess = null;
+        }
+
+        private void StartEdit_Click(object sender, RoutedEventArgs e)
+        {
+            string dir = AppContext.BaseDirectory;
+            int binPosition = dir.LastIndexOf("bin");
+            string projectRoot = dir[0..binPosition];
+            //MessageBox.Show(projectRoot);
+            //return;
+            notepadProcess ??= Process.Start(
+                "notepad.exe",$"{projectRoot}ProcessWindow.xaml.cs"
+                );
+        }
+        Process browserProcess;
+        private void StartBro_Click(object sender, RoutedEventArgs e)
+        {
+            string filename = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
+            if (System.IO.File.Exists(filename))
+            {
+                browserProcess ??= Process.Start(filename,
+               "itstep.org");
+            }
+            else
+            {
+                MessageBox.Show("Такого файла не существует!");
+            }
+           
+        }
+
+        private void StartCalc_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("calc.exe");
+        }
+        private Process taskProc;
+        private void StartDisp_Click(object sender, RoutedEventArgs e)
+        {
+            taskProc = new Process();
+            taskProc.StartInfo.FileName = "taskmgr.exe";
+            taskProc.StartInfo.UseShellExecute = true;
+            taskProc.StartInfo.Verb = "runas";
+            taskProc.Start();
+        }
+
+        private void StartParam_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("control.exe", "desk.cpl");
+        }
     }
 }

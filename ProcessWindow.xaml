@@ -8,11 +8,36 @@
         Title="ProcessWindow" Height="450" Width="400">
     <StackPanel Orientation="Vertical">
         <Label Content="Процессы" HorizontalAlignment="Center"/>
-        <Button x:Name="ShowProcesses" Content="Show" Click="ShowProcesses_Click"/>
-        <ScrollViewer Height="300">
-            <TreeView x:Name="ProcTreeView">
-            </TreeView>
-            <!--<TextBlock x:Name="ProcTextBlock"/>-->
-        </ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Button x:Name="ShowProcesses" Content="Show" Click="ShowProcesses_Click"/>
+                <ScrollViewer Height="300">
+                    <TreeView x:Name="ProcTreeView">
+                    </TreeView>
+                    <!--<TextBlock x:Name="ProcTextBlock"/>-->
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Button x:Name="StartNotepad" Content="Блокнот"
+                        Margin="5 0" Click="StartNotepad_Click"/>
+                <Button x:Name="StopNotepad" Content="Стоп"
+                        Margin="5 0" Click="StopNotepad_Click"/>
+                <Button x:Name="StartEdit" Content="Редактирование"
+                        Margin="5 0" Click="StartEdit_Click"/>
+                <Button x:Name="StartBro" Content="Браузер"
+                        Margin="5 0" Click="StartBro_Click"/>
+                <Button x:Name="StartCalc" Content="Калькулятор"
+                        Margin="5 0" Click="StartCalc_Click"/>
+                <Button x:Name="StartDisp" Content="Диспетчер задач"
+                        Margin="5 0" Click="StartDisp_Click"/>
+                <Button x:Name="StartParam" Content="Параметры"
+                        Margin="5 0" Click="StartParam_Click"/>
+            </StackPanel>
+        </Grid>
+       
     </StackPanel>
 </Window>
