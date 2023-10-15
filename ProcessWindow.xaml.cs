@@ -25,7 +25,7 @@ namespace Занятие_в_аудитории_1_Системное_програ
         private const String mutexName = "SPNP_MUTEX";
         public ProcessWindow()
         {
-            CheckPreviousLunch();
+            //CheckPreviousLunch();
             InitializeComponent();
         }
         private void CheckPreviousLunch()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -57,14 +58,43 @@ namespace Занятие_в_аудитории_1_Системное_програ
             COkno2.ShowDialog();
         }
 
+        private static Mutex mutex;
+        private const String mutexName = "SPNP_MPV_MUTEX";
         private void ProcessButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                mutex = Mutex.OpenExisting(mutexName);
+            }
+            catch { }
+            if (mutex != null)
+            {
+                if (!mutex.WaitOne(1))
+                {
+                    string message = "Запущено другой экземпляр окна.";
+                    MessageBox.Show(message);
+                    return;
+                }
+                else
+                {
+
+                }
+            }
+            else mutex = new Mutex(true, mutexName);
             this.Hide();
             try
             {
                 new ProcessWindow().ShowDialog();
             }
             catch { }
+            this.ShowDialog();
+            mutex.ReleaseMutex();
+        }
+
+        private void ChainingButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new ChainingWindow().ShowDialog();
             this.ShowDialog();
         }
     }
