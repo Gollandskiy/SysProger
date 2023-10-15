@@ -34,15 +34,13 @@ namespace Занятие_в_аудитории_1_Системное_програ
 
             var task10 =
                 ShowProgress(progressBar10, cts.Token)
-                .ContinueWith(task10 =>     
-                    ShowProgress(progressBar11, cts.Token)
+                .ContinueWith(task10 => ShowProgress(progressBar11, cts.Token)
                    .ContinueWith(task11 =>
                         ShowProgress(progressBar12, cts.Token)));
 
             var task20 =
                 ShowProgress(progressBar20, cts.Token)
-                .ContinueWith(task20 =>
-                    ShowProgress(progressBar21, cts.Token)
+                .ContinueWith(task20 => ShowProgress(progressBar21, cts.Token)
                    .ContinueWith(task21 =>
                         ShowProgress(progressBar22, cts.Token)));
         }
