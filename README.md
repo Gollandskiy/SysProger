@@ -15,6 +15,9 @@
 ![image](https://github.com/Gollandskiy/SysProger/assets/126692933/ee8fe8a4-2d92-421b-98ad-426f4b610553)
 # update (10.10.2023)
 ![image](https://github.com/Gollandskiy/SysProger/assets/126692933/ce973234-2f9a-47d7-b149-dfd420154409)
+# update (15.10.2023)
+![image](https://github.com/Gollandskiy/SysProger/assets/126692933/86184d9e-1fa5-4934-a862-f076d1e21fdc)
+
 
 
 
