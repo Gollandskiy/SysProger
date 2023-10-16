@@ -97,5 +97,12 @@ namespace Занятие_в_аудитории_1_Системное_програ
             new ChainingWindow().ShowDialog();
             this.ShowDialog();
         }
+
+        private void DLLButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new DLLWindow().ShowDialog();
+            this.Show();
+        }
     }
 }

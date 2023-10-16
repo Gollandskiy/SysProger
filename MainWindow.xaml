@@ -29,5 +29,8 @@
         <Button Content="Цепь" x:Name="ChainingButton"
                 Margin="20 7" Click="ChainingButton_Click"/>
 
+        <Button Content="DLL" x:Name="DLLButton"
+                Margin="20 7" Click="DLLButton_Click"/>
+
     </StackPanel>
 </Window>
